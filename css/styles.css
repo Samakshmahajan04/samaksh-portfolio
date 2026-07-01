@@ -1177,6 +1177,8 @@ button {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    color: inherit;
+    min-height: 170px;
 }
 
 .cert-card:hover {
@@ -1203,12 +1205,19 @@ button {
 .cert-icon img {
     width: 60px;
     height: 60px;
+    object-fit: contain;
+}
+
+.cert-info {
+    min-width: 0;
+    width: 100%;
 }
 
 .cert-info h3 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px;
+    overflow-wrap: anywhere;
 }
 
 .cert-info p {
@@ -1227,6 +1236,16 @@ button {
 
 .cert-status.completed {
     color: var(--accent);
+}
+
+.cert-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-light);
 }
 
 .cert-status.in-progress {
