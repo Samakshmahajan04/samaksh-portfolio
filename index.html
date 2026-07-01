@@ -52,7 +52,7 @@
                     <i class="fas fa-certificate"></i><span>Certifications</span>
                 </a>
                 <a href="#gallery" class="nav-link" data-section="gallery">
-                    <i class="fas fa-images"></i><span>Gallery</span>
+                    <i class="fas fa-layer-group"></i><span>Highlights</span>
                 </a>
                 <a href="#contact" class="nav-link" data-section="contact">
                     <i class="fas fa-envelope"></i><span>Contact</span>
@@ -656,120 +656,95 @@
         </div>
     </section>
 
-    <!-- ==================== PHOTO GALLERY / SLIDESHOW ==================== -->
+    <!-- ==================== PROJECT & LEARNING HIGHLIGHTS ==================== -->
     <section id="gallery" class="section gallery-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <span class="section-subtitle">My Moments</span>
-                <h2 class="section-title">Photo Gallery</h2>
+                <span class="section-subtitle">What I Am Building</span>
+                <h2 class="section-title">Project & Learning Highlights</h2>
                 <div class="section-line"></div>
             </div>
 
-            <!-- Main Slideshow -->
-            <div class="slideshow-container animate-on-scroll">
-                <div class="slideshow-wrapper" id="slideshow">
-                    <div class="slide active">
-                        <img src="images/slide1.jpg" alt="Photo 1">
-                        <div class="slide-caption">
-                            <h3>At Work - Autodesk Office</h3>
-                            <p>Working with amazing team members</p>
-                        </div>
+            <div class="highlight-grid animate-on-scroll">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-code-branch"></i>
                     </div>
-                    <div class="slide">
-                        <img src="images/slide2.jpg" alt="Photo 2">
-                        <div class="slide-caption">
-                            <h3>Tech Conference 2024</h3>
-                            <p>Learning about latest cloud technologies</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/slide3.jpg" alt="Photo 3">
-                        <div class="slide-caption">
-                            <h3>Azure Community Meetup</h3>
-                            <p>Networking with cloud professionals</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/slide4.jpg" alt="Photo 4">
-                        <div class="slide-caption">
-                            <h3>Hackathon Participation</h3>
-                            <p>Building solutions with teammates</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/slide5.jpg" alt="Photo 5">
-                        <div class="slide-caption">
-                            <h3>Certification Achievement</h3>
-                            <p>Celebrating learning milestones</p>
+                    <div class="highlight-content">
+                        <span class="highlight-kicker">DevOps Practice</span>
+                        <h3>Azure DevOps Pipeline Practice</h3>
+                        <p>Practicing CI/CD concepts with Azure DevOps, YAML workflows, GitHub, and release automation fundamentals.</p>
+                        <div class="highlight-tags">
+                            <span>Azure DevOps</span>
+                            <span>YAML</span>
+                            <span>CI/CD</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slideshow Controls -->
-                <button class="slide-btn slide-prev" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slide-btn slide-next" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <span class="highlight-kicker">Cloud Learning</span>
+                        <h3>Cloud Foundations</h3>
+                        <p>Completed AWS Academy Cloud Foundations and Google Cloud Career Readiness while building toward Azure DevOps roles.</p>
+                        <div class="highlight-tags">
+                            <span>AWS</span>
+                            <span>Google Cloud</span>
+                            <span>Azure</span>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Slideshow Dots -->
-                <div class="slide-dots" id="slideDots"></div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <span class="highlight-kicker">Work Experience</span>
+                        <h3>Technical Support at Autodesk</h3>
+                        <p>Handling troubleshooting, account workflows, installation issues, and structured customer support for education users.</p>
+                        <div class="highlight-tags">
+                            <span>Troubleshooting</span>
+                            <span>Support</span>
+                            <span>Root Cause</span>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Progress Bar -->
-                <div class="slide-progress">
-                    <div class="slide-progress-bar" id="slideProgress"></div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <span class="highlight-kicker">Portfolio Project</span>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>Maintaining a live portfolio with resume download, certification proof, skills, experience, and contact information.</p>
+                        <div class="highlight-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Thumbnail Grid -->
-            <div class="gallery-grid animate-on-scroll">
-                <div class="gallery-item" data-slide="0">
-                    <img src="images/slide1.jpg" alt="Thumbnail 1">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
+                <div class="highlight-card highlight-card-wide">
+                    <div class="highlight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <span class="highlight-kicker">Business Skills</span>
+                        <h3>Business Analysis & Collaboration</h3>
+                        <p>Strengthening requirements gathering, project collaboration, and communication skills to connect technical work with business outcomes.</p>
+                        <div class="highlight-tags">
+                            <span>Business Analysis</span>
+                            <span>Collaboration</span>
+                            <span>Communication</span>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item" data-slide="1">
-                    <img src="images/slide2.jpg" alt="Thumbnail 2">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item" data-slide="2">
-                    <img src="images/slide3.jpg" alt="Thumbnail 3">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item" data-slide="3">
-                    <img src="images/slide4.jpg" alt="Thumbnail 4">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-                <div class="gallery-item" data-slide="4">
-                    <img src="images/slide5.jpg" alt="Thumbnail 5">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Lightbox -->
-        <div class="lightbox" id="lightbox">
-            <button class="lightbox-close" id="lightboxClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="lightbox-prev" id="lightboxPrev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-next" id="lightboxNext">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <div class="lightbox-content">
-                <img src="" alt="Lightbox Image" id="lightboxImg">
             </div>
         </div>
     </section>

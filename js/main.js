@@ -20,7 +20,7 @@ window.addEventListener('mousemove', (e) => {
 });
 
 // Cursor hover effect on interactive elements
-document.querySelectorAll('a, button, .skill-card, .cert-card, .gallery-item').forEach(el => {
+document.querySelectorAll('a, button, .skill-card, .cert-card, .highlight-card').forEach(el => {
     el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
 });
@@ -249,138 +249,6 @@ skillTabs.forEach(tab => {
             }
         });
     });
-});
-
-// ==================== SLIDESHOW ====================
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('slideDots');
-const progressBar = document.getElementById('slideProgress');
-let currentSlide = 0;
-let slideInterval;
-const slideDelay = 5000;
-
-// Create dots
-slides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('slide-dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll('.slide-dot');
-
-function goToSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-
-    currentSlide = index;
-
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-
-    // Reset progress bar
-    resetProgress();
-}
-
-function nextSlide() {
-    goToSlide((currentSlide + 1) % slides.length);
-}
-
-function prevSlide() {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length);
-}
-
-function resetProgress() {
-    progressBar.style.transition = 'none';
-    progressBar.style.width = '0%';
-    setTimeout(() => {
-        progressBar.style.transition = `width ${slideDelay}ms linear`;
-        progressBar.style.width = '100%';
-    }, 50);
-}
-
-function startSlideshow() {
-    clearInterval(slideInterval);
-    resetProgress();
-    slideInterval = setInterval(nextSlide, slideDelay);
-}
-
-// Controls
-document.getElementById('nextBtn').addEventListener('click', () => {
-    nextSlide();
-    startSlideshow();
-});
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-    prevSlide();
-    startSlideshow();
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') { prevSlide(); startSlideshow(); }
-    if (e.key === 'ArrowRight') { nextSlide(); startSlideshow(); }
-    if (e.key === 'Escape') closeLightbox();
-});
-
-// Touch support for slideshow
-let touchStartX = 0;
-let touchEndX = 0;
-
-const slideshowEl = document.querySelector('.slideshow-wrapper');
-slideshowEl.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-slideshowEl.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    if (touchStartX - touchEndX > 50) { nextSlide(); startSlideshow(); }
-    if (touchEndX - touchStartX > 50) { prevSlide(); startSlideshow(); }
-});
-
-startSlideshow();
-
-// ==================== LIGHTBOX ====================
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-let lightboxIndex = 0;
-
-const galleryImages = [];
-document.querySelectorAll('.gallery-item').forEach((item, i) => {
-    const imgSrc = item.querySelector('img').src;
-    galleryImages.push(imgSrc);
-
-    item.addEventListener('click', () => {
-        lightboxIndex = i;
-        openLightbox(imgSrc);
-    });
-});
-
-function openLightbox(src) {
-    lightboxImg.src = src;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-});
-
-document.getElementById('lightboxPrev').addEventListener('click', () => {
-    lightboxIndex = (lightboxIndex - 1 + galleryImages.length) % galleryImages.length;
-    lightboxImg.src = galleryImages[lightboxIndex];
-});
-
-document.getElementById('lightboxNext').addEventListener('click', () => {
-    lightboxIndex = (lightboxIndex + 1) % galleryImages.length;
-    lightboxImg.src = galleryImages[lightboxIndex];
 });
 
 // ==================== BACK TO TOP ====================
