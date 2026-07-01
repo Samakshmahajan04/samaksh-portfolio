@@ -269,40 +269,61 @@ backToTop.addEventListener('click', () => {
 // ==================== CONTACT FORM ====================
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
+const ownerEmail = 'samakshgupta48@gmail.com';
+const formEndpoint = `https://formsubmit.co/ajax/${ownerEmail}`;
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    // Simple validation
     if (!name || !email || !subject || !message) {
         formStatus.textContent = 'Please fill in all fields.';
         formStatus.className = 'form-status error';
         return;
     }
 
-    // Simulate form submission
-    // In production, you'd use Azure Functions or a backend API
     const submitBtn = contactForm.querySelector('.btn-submit');
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Sending...</span>';
-    submitBtn.disabled = true;
+    const submitText = submitBtn.querySelector('span');
+    const formData = new FormData(contactForm);
 
-    setTimeout(() => {
-        formStatus.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+    formData.set('_subject', `Portfolio inquiry: ${subject}`);
+    formData.set('name', name);
+    formData.set('email', email);
+    formData.set('subject', subject);
+    formData.set('message', message);
+
+    submitBtn.disabled = true;
+    submitText.textContent = 'Sending...';
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+
+    try {
+        const response = await fetch(formEndpoint, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json'
+            },
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error('Message could not be sent.');
+        }
+
+        formStatus.textContent = 'Message sent successfully. I will get back to you soon.';
         formStatus.className = 'form-status success';
         contactForm.reset();
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span>Send Message</span>';
+    } catch (error) {
+        formStatus.textContent = `Message could not be sent automatically. Please email me at ${ownerEmail}.`;
+        formStatus.className = 'form-status error';
+    } finally {
         submitBtn.disabled = false;
-
-        setTimeout(() => {
-            formStatus.textContent = '';
-            formStatus.className = 'form-status';
-        }, 5000);
-    }, 2000);
+        submitText.textContent = 'Send Message';
+    }
 });
 
 // ==================== EXTRA: Fade-in-up animation keyframes ====================
