@@ -1208,6 +1208,18 @@ button {
     object-fit: contain;
 }
 
+.cert-icon i {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    box-shadow: var(--shadow-glow);
+}
+
 .cert-info {
     min-width: 0;
     width: 100%;
